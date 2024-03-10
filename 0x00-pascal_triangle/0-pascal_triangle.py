@@ -1,8 +1,5 @@
-#!usr/bin/python3
-"""
-This module defines a function that return a list of
-lists integers representing the Pascal's triangle of n
-"""
+#!/usr/bin/python3
+"""A script  that generate Pascal's triangle of n number"""
 
 
 def pascal_triangle(n):
