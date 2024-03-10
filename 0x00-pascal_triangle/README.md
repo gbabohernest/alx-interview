@@ -45,5 +45,5 @@ an integer `n` as input and return a list of lists of integers representing Pasc
     triangle = pascal_triangle(5)
     print(triangle)
 
-This will generate the Print Pascal's triangle with 5 rows
+This will generate and Print Pascal's triangle with 5 rows
 ```[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]```
