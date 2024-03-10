@@ -6,7 +6,8 @@ def pascal_triangle(n):
     """
           Generate Pascal's triangle of n rows.
           :param n: number of rows.
-          :return: A lists of list of integers  representing the Pascal's triangle.
+          :return: A lists of list of integers
+                    representing the Pascal's triangle.
     """
 
     if n <= 0:
