@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
-"""A script that determines if all boxes can be opened
-from n number of locked boxes."""
+"""
+    A script that determines if all boxes can be
+    opened from n number of locked boxes.
+
+"""
 
 from typing import List
 
@@ -25,13 +28,16 @@ def canUnlockAll(boxes: List[List]) -> bool:
     visited_boxes = set()
     stack_of_boxes: List[int] = [0]
 
+    visited_boxes.add(0)
+
     while stack_of_boxes:
         current_box = stack_of_boxes.pop()
-        visited_boxes.add(current_box)
+        # visited_boxes.add(current_box)
         keys_list: List[int] = boxes[current_box]  # list of keys [1, 4, 6]
 
         for key in keys_list:
             if key not in visited_boxes and key < len(boxes):
                 stack_of_boxes.append(key)
+                visited_boxes.add(key)
 
     return len(visited_boxes) == len(boxes)
