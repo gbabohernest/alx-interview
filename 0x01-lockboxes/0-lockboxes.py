@@ -26,14 +26,16 @@ def canUnlockAll(boxes: List[List]) -> bool:
         return True
 
     visited_boxes = set()
-    stack_of_boxes: List[int] = [0]
+    # stack_of_boxes: List[int] = [0]  #PEP8 not allowed
+    stack_of_boxes = [0]
 
     visited_boxes.add(0)
 
     while stack_of_boxes:
         current_box = stack_of_boxes.pop()
         # visited_boxes.add(current_box)
-        keys_list: List[int] = boxes[current_box]  # list of keys [1, 4, 6]
+        # keys_list: List[int] = boxes[current_box]  # PEP not allowed
+        keys_list = boxes[current_box]  # list of keys [1, 4, 6]
 
         for key in keys_list:
             if key not in visited_boxes and key < len(boxes):
