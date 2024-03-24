@@ -48,5 +48,4 @@ given number `n`. Here are the key concepts and steps involved in the algorithm:
 ## Usage
 ```Python
 n = 9
-operations_needed = minOperations(n)
 print("Min num of operations to reach {} char: {}".format(n, minOperations(n)))  # Output: Min num of operations to reach 9 char: 6
