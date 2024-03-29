@@ -41,10 +41,13 @@ try:
                 file_size = int(file_size)
 
                 # Update metrics
-                line_count += 1
-                total_file_size += file_size
+                # line_count += 1
+                # total_file_size += file_size
                 if status_code in status_code_counts:
                     status_code_counts[status_code] += 1
+
+                total_file_size += file_size
+                line_count += 1
 
                 # Print statistics after every 10 lines
                 if line_count % 10 == 0:
