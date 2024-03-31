@@ -30,10 +30,11 @@ size = 0
 
 try:
     for line in sys.stdin:
-        if lines_processed != 0 and lines_processed % 10 == 0:
-            print_statistics(status_code_counts, size)
-
         input_list = line.split()
+
+        if len(input_list) < 7:
+            continue
+
         lines_processed += 1
 
         try:
@@ -48,8 +49,10 @@ try:
         except ValueError:
             pass
 
-    print_statistics(status_code_counts, size)
+        if lines_processed % 10 == 0:
+            print_statistics(status_code_counts, size)
 
+    print_statistics(status_code_counts, size)
 
 except KeyboardInterrupt:
     print_statistics(status_code_counts, size)
