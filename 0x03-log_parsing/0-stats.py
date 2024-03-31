@@ -49,6 +49,10 @@ def print_statistics(status_code_counts_dict, total_size):
         if status_code_counts_dict[code] != 0:
             print(f"{code}: {status_code_counts_dict[code]}")
 
+    # Reset status code counts after printing statistics
+    for code in status_code_counts_dict:
+        status_code_counts_dict[code] = 0
+
 
 lines_processed = 0
 size = 0
@@ -72,11 +76,15 @@ try:
         size += file_size
         lines_processed += 1
 
-        # print stats every 10 lines
+        # print stats every 10 lines or after keyboard interruption
         if lines_processed % 10 == 0:
-            lines_processed = 0
+            # lines_processed = 0
             print_statistics(status_code_counts, size)
 
 except KeyboardInterrupt:
     print_statistics(status_code_counts, size)
     raise
+
+# Print final statistics if there are remaining lines
+if lines_processed % 10 != 0:
+    print_statistics(status_code_counts, size)
