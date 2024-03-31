@@ -22,8 +22,8 @@ def print_statistics(status_code_counts_dict, total_size):
             print(f"{code}: {status_code_counts_dict[code]}")
 
 
-status_code_counts = {200: 0, 301: 0, 400: 0, 401: 0,
-                      403: 0, 404: 0, 405: 0, 500: 0}
+status_code_counts = {"200": 0, "301": 0, "400": 0, "401": 0,
+                      "403": 0, "404": 0, "405": 0, "500": 0}
 
 lines_processed = 0
 size = 0
@@ -42,7 +42,7 @@ try:
             pass
 
         try:
-            status_code = int(input_list[-2])
+            status_code = input_list[-2]
             if status_code in status_code_counts:
                 status_code_counts[status_code] += 1
         except ValueError:
