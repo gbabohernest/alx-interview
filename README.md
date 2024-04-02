@@ -1,4 +1,15 @@
-# Interview Preparation Repo - ALX
+# ALX Interview Preparation
 
-This repository contains a variety of questions covering different topics and concepts. It's Alx's
-way of preparing us, the students, to tackle various interview questions.
+## Overview
+
+The purpose of this repository is to help students strengthen their problem-solving skills, familiarize themselves
+with common interview questions, and gain confidence tackling technical interviews.
+
+## Tasks
+
+| Task                                                    | Description                                    |
+|---------------------------------------------------------|------------------------------------------------|
+| [`0x00-pascal_triangle`](./0x00-pascal_triangle/)       | Pascal triangle - **`Algorithm`** **`Python`** |
+| [`0x01-lockboxes`](./0x01-lockboxes/)                   | Lock boxes -  **`Algorithm`** **`Python`**     |
+| [`0x02-minimum_operations`](./0x02-minimum_operations/) | Minimum operations - **`Dynamic Programming`** |
+| [`0x03-log_parsing`](./0x03-log_parsing/)               | Log parsing **`Algorithm`** **`Python`**       |
