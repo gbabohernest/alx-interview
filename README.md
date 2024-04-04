@@ -13,3 +13,4 @@ with common interview questions, and gain confidence tackling technical intervie
 | [`0x01-lockboxes`](./0x01-lockboxes/)                   | Lock boxes -  **`Algorithm`** **`Python`**     |
 | [`0x02-minimum_operations`](./0x02-minimum_operations/) | Minimum operations - **`Dynamic Programming`** |
 | [`0x03-log_parsing`](./0x03-log_parsing/)               | Log parsing **`Algorithm`** **`Python`**       |
+| [`0x04-utf8_validation`](./0x04-utf8_validation/)       | UTF-8 Validation **`Algorithm`** **`Python`**  |
