@@ -23,6 +23,8 @@ def validUTF8(data):
     def is_continuation(byte):
         """Helper function to check if a byte is
         a valid UTF-8 continuation byte
+
+        :param: Byte of data
         """
         return byte & 0b11000000 == 0b10000000
 
@@ -59,4 +61,3 @@ def validUTF8(data):
             return False  # Invalid byte sequence
 
     return True
-    
