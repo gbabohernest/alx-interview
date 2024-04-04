@@ -36,9 +36,9 @@ def validUTF8(data):
                 return False
 
             # check for overlong encodings
-            if count > 1 and byte >> (8 - count) == (
-                    0b11111111 >> (8 - count)):
-                return False
+            # if count > 1 and byte >> (8 - count) == (
+            #        0b11111111 >> (8 - count)):
+            #    return False
         else:
             if byte >> 6 != 0b10:
                 return False
