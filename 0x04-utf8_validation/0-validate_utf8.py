@@ -14,34 +14,48 @@ set represents a valid UTF-8 encoding.
 
 def validUTF8(data):
     """A function that determines if a
-    given data set represent a valid UTF-8 encoding
+        given data set represent a valid UTF-8 encoding
 
-    :param: data: List of integers
-    :return: True if data is valid UTF-8 encoding, else False
+        :param: data: List of integers
+        :return: True if data is valid UTF-8 encoding, else False
     """
+
+    def is_continuation(byte):
+        """Helper function to check if a byte is
+        a valid UTF-8 continuation byte
+        """
+        return byte & 0b11000000 == 0b10000000
+
     # track number of bytes in the current UTF-8 character
     count = 0
 
-    for byte in data:
-        if count == 0:
-            if byte >> 7 == 0:
-                continue
-            elif byte >> 5 == 0b110:
-                count = 1
-            elif byte >> 4 == 0b1110:
-                count = 2
-            elif byte >> 3 == 0b11110:
-                count = 3
-            else:
-                return False
+    while count < len(data):
+        byte = data[count]
 
-            # check for overlong encodings
-            if count > 1 and byte >> (8 - count) == (
-                    0b11111111 >> (8 - count)):
+        # Determine the number of bytes for this
+        # character based on the first byte
+
+        if byte & 0b10000000 == 0:  # 1-byte character
+            count += 1
+
+        elif byte & 0b11100000 == 0b11000000:  # 2-byte character
+            if count + 1 >= len(data) or not is_continuation(data[count + 1]):
                 return False
+            count += 2
+
+        elif byte & 0b11110000 == 0b11100000:  # 3-byte character
+            if (count + 2 >= len(data) or not is_continuation(data[count + 1])
+                    or not is_continuation(data[count + 2])):
+                return False
+            count += 3
+
+        elif byte & 0b11111000 == 0b11110000:  # 4-byte character
+            if (count + 3 >= len(data) or not is_continuation(data[count + 1])
+                    or not is_continuation(data[count + 2]) or
+                    not is_continuation(data[count + 3])):
+                return False
+            count += 4
         else:
-            if byte >> 6 != 0b10:
-                return False
-            count -= 1
+            return False  # Invalid byte sequence
 
-    return count == 0
+    return True
