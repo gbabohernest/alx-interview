@@ -59,3 +59,4 @@ def validUTF8(data):
             return False  # Invalid byte sequence
 
     return True
+    
