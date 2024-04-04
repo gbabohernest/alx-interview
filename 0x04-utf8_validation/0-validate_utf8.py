@@ -23,14 +23,11 @@ def validUTF8(data):
     def is_continuation(byte):
         """Helper function to check if a byte is
         a valid UTF-8 continuation byte
-
-        :param: Byte of data
         """
         return byte & 0b11000000 == 0b10000000
 
-    # track number of bytes in the current UTF-8 character
+    # Iterate through each byte in the data
     count = 0
-
     while count < len(data):
         byte = data[count]
 
@@ -46,15 +43,15 @@ def validUTF8(data):
             count += 2
 
         elif byte & 0b11110000 == 0b11100000:  # 3-byte character
-            if (count + 2 >= len(data) or not is_continuation(data[count + 1])
-                    or not is_continuation(data[count + 2])):
+            if count + 2 >= len(data) or not is_continuation(data[count + 1]) \
+                    or not is_continuation(data[count + 2]):
                 return False
             count += 3
 
         elif byte & 0b11111000 == 0b11110000:  # 4-byte character
-            if (count + 3 >= len(data) or not is_continuation(data[count + 1])
-                    or not is_continuation(data[count + 2]) or
-                    not is_continuation(data[count + 3])):
+            if count + 3 >= len(data) or not is_continuation(data[count + 1]) \
+                    or not is_continuation(data[count + 2]) \
+                    or not is_continuation(data[count + 3]):
                 return False
             count += 4
         else:
