@@ -1,5 +1,9 @@
 # ALX Interview Preparation
 
+![Repo size](https://img.shields.io/github/repo-size/gbabohernest/alx-interview)
+![Latest commit](https://img.shields.io/github/last-commit/gbabohernest/alx-interview/master?style=round-square)
+![Pycodestyle](https://img.shields.io/badge/Pycodestyle-style%20guide-purple?style=round-square)
+
 ## Overview
 
 The purpose of this repository is to help students strengthen their problem-solving skills, familiarize themselves
