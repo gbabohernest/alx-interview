@@ -19,3 +19,4 @@ with common interview questions, and gain confidence tackling technical intervie
 | [`0x03-log_parsing`](./0x03-log_parsing/)               | Log parsing **`Algorithm`** **`Python`**       |
 | [`0x04-utf8_validation`](./0x04-utf8_validation/)       | UTF-8 Validation **`Algorithm`** **`Python`**  |
 | [`0x05-nqueens`](./0x05-nqueens)                        | N Queens **`Algorithm`** **`Python`**          |
+| [`0x06-starwars_api`](./0x06-starwars_api)              | Star Wars API **`Algorithm`** **`API`** **`JavaScript`** |
