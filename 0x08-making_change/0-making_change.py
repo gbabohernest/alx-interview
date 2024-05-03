@@ -2,7 +2,7 @@
 """
 This module provides a function for calculating the
 fewest number of coins needed to meet a given total
-amount, using a dynamic programming approach.
+amount, using a dynamic programming approach (memoization).
 """
 
 
@@ -29,16 +29,30 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    min_coins_needed = [float('inf')] * (total + 1)
-    min_coins_needed[0] = 0
+    memo = {}
 
-    for coin_value in coins:
-        for current_total in range(coin_value, total + 1):
-            min_coins_needed[current_total] = min(
-                min_coins_needed[current_total],
-                min_coins_needed[current_total - coin_value] + 1)
+    def cal_min_num_of_coin_recursively(amount):
+        """Recursively calculates the minimum
+           number of coins needed for each amount
+           using memoization for optimization.
+        """
+        if amount in memo:
+            return memo[amount]
 
-    if min_coins_needed[total] == float('inf'):
-        return -1
-    else:
-        return min_coins_needed[total]
+        if amount < 0:
+            return float('inf')
+
+        if amount == 0:
+            return 0
+
+        min_coins = float('inf')
+        for coin in coins:
+            if amount - coin >= 0:
+                min_coins = min(min_coins, cal_min_num_of_coin_recursively(
+                    amount - coin) + 1
+                                )
+        memo[amount] = min_coins
+        return min_coins
+
+    result = cal_min_num_of_coin_recursively(total)
+    return result if result != float('inf') else -1
