@@ -22,3 +22,4 @@ with common interview questions, and gain confidence tackling technical intervie
 | [`0x06-starwars_api`](./0x06-starwars_api)              | Star Wars API **`Algorithm`** **`API`** **`JavaScript`** |
 | [`0x07-rotate_2d_matrix`](./0x07-rotate_2d_matrix)      | Rotate 2D Matrix **`Algorithm`** **`Python`**            |
 | [`0x08-making_change`](./0x08-making_change)            | Making Change **`Algorithm`**  **`Python`**              |          |
+| [`0x09-island_perimeter`](./0x09-island_perimeter)      | Island Perimeter **`Algorithm`** **`Python`**            |
