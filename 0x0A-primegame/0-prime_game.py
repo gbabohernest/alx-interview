@@ -57,10 +57,16 @@ def isWinner(x, nums):
                     or None if winner cannot be determined.
 
     """
+    if x <= 0:
+        return None
+
     ben_wins = 0
     maria_wins = 0
 
     for n in nums:
+        if n <= 0:
+            continue
+
         primes = get_primes(n)
 
         if len(primes) % 2 == 0:
