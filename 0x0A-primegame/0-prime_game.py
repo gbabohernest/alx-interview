@@ -43,26 +43,6 @@ def get_primes(n):
     return primes
 
 
-def can_make_move(primes, remaining_nums):
-    """
-    Check if a move can be made in the prime
-    number game.
-
-    Args:
-        primes (list): List of prime numbers.
-        remaining_nums (list): List of remaining numbers in the game.
-
-    Returns:
-        bool: True if a move can be made, False otherwise.
-
-    """
-    for prime in primes:
-        if prime in remaining_nums:
-            return True
-
-    return False
-
-
 def isWinner(x, nums):
     """
     Determine the winner of the prime number game.
@@ -77,39 +57,22 @@ def isWinner(x, nums):
                     or None if winner cannot be determined.
 
     """
-    winners = {'Maria': 0, 'Ben': 0}
+    ben_wins = 0
+    maria_wins = 0
 
     for n in nums:
         primes = get_primes(n)
-        remaining_nums = list(range(1, n + 1))
-        turn = 'Maria'
 
-        while can_make_move(primes, remaining_nums):
-            if turn == 'Maria':
-                for prime in primes:
-                    if prime in remaining_nums:
-                        for num in range(prime, n + 1, prime):
-                            if num in remaining_nums:
-                                remaining_nums.remove(num)
-                        break
-                turn = 'Ben'
-
-            else:
-                for prime in primes:
-                    if prime in remaining_nums:
-                        for num in range(prime, n + 1, prime):
-                            if num in remaining_nums:
-                                remaining_nums.remove(num)
-                        break
-                turn = 'Maria'
-
-        if turn == 'Ben':
-            winners['Ben'] += 1
+        if len(primes) % 2 == 0:
+            ben_wins += 1
         else:
-            winners['Maria'] += 1
+            maria_wins += 1
 
-    max_wins = max(winners.values())
-    if list(winners.values()).count(max_wins) == 1:
-        return max(winners, key=winners.get)
+    if maria_wins > ben_wins:
+        return 'Maria'
+
+    elif ben_wins > maria_wins:
+        return 'Ben'
+
     else:
         return None
